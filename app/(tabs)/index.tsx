@@ -122,17 +122,17 @@ export default function HomeScreen() {
         <View style={styles.weatherBox}>
           <Text style={styles.cityName}>{weather.name}</Text>
           <Text style={styles.temp}>
-            {weather.main.temp}°{units === "metric" ? "C" : "F"}
+            {weather?.main?.temp}°{units === "metric" ? "C" : "F"}
           </Text>
 
           <Image
             source={{
-              uri: `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`,
+              uri: `https://openweathermap.org/img/wn/${weather?.weather?.[0]?.icon}@2x.png`,
             }}
             style={styles.weatherIcon}
           />
-          <Text style={styles.desc}>{weather.weather[0].description}</Text>
-          <Text style={styles.desc}>{weather.weather[0].main}</Text>
+          <Text style={styles.desc}>{weather?.weather?.[0]?.description}</Text>
+          <Text style={styles.desc}>{weather?.weather?.[0]?.main}</Text>
         </View>
       )}
     </View>
