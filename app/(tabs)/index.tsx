@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import * as Location from "expo-location";
 import { Picker } from "@react-native-picker/picker";
+import Constants from "expo-constants";
 
 export default function HomeScreen() {
   const [location, setLocation] =
@@ -21,7 +22,7 @@ export default function HomeScreen() {
   const [searching, setSearching] = useState(false);
   const [units, setUnits] = useState<"metric" | "imperial">("metric");
 
-  const API_KEY = "2c96c7dbdaf0b3044a75ccf5d57ea451"; // ✅ Your API key
+  const API_KEY = Constants.expoConfig?.extra?.openWeatherApiKey;
 
   useEffect(() => {
     getLocationAndWeather();
